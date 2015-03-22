@@ -11,13 +11,13 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 
 ##Variables
 * _features_  contains the column names for test_raw and training_raw datasets.
-* _test_raw_ ,  _training_raw_  are the data that has the column name given from _features_ variable.  
+* _test_raw_ ,  _training_raw_  are the data that have the column name given from _features_ variable.  
 * _activity_ stores the 6 type of activities: WALKING, WALKING_DOWNSTAIRS, WALKING_UPSTAIRS, SITTING, STANDING, LAYING.  
-* _subjectID_test_  ,  _subjectID_training_ , _activityID_test_ , _activityID_training_ stores the data of the subject ID and activity ID for test and training data respectively.
-* _test_all_ ,  _training_all_  and  _data_all_  combines the previous datasets for next step analysis.
+* _subjectID_test_  ,  _subjectID_training_ , _activityID_test_ , _activityID_training_ store the data of the subject ID and activity ID for test and training data respectively.
+* _test_all_ ,  _training_all_  and  _data_all_  combine the previous datasets for next step analysis.
 * _selected_data_ selects only the columns contains "mean" or "std" in the _data_all_ dataset.
 * _mergedData_  merges the selected data with _activity_ data frame.
-* _melt_data_ melt the data into five columns ("activityID"   "activityName" "subjectID"    "variable"     "value") so it prepared the data for the final cleaning step.
+* _melt_data_ melts the data into five columns ("activityID"   "activityName" "subjectID"    "variable"     "value") so it prepared the data for the final cleaning step.
 * _dataset_final_ uses cast function to calculate the averages of each variable for each activity and each subject.
 
 ##Transformation Steps
