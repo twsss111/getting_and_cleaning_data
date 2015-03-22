@@ -6,20 +6,27 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 
 ##The data source
 * Original data: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
-* Original description of the dataset: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones 
+* Original description of the dataset: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
 
 ##Variables
-* features  contains the column names for test_raw and training_raw datasets.
-* test_raw ,  training_raw ,  activity ,  subjectID_test  ,  subjectID_training , activityID_test , activityID_training  contain the data from the downloaded files.
-* test_all ,  training_all  and  data_all  combined the previous datasets for next step analysis.
-* mergedData  contains all the columns contains "mean" or "std"
+* _features_  contains the column names for test_raw and training_raw datasets.
+* _test_raw_ ,  _training_raw_  are the data that has the column name given from _features_ variable.  
+* _activity_ stores the 6 type of activities: WALKING, WALKING_DOWNSTAIRS, WALKING_UPSTAIRS, SITTING, STANDING, LAYING.  
+* _subjectID_test_  ,  _subjectID_training_ , _activityID_test_ , _activityID_training_ stores the data of the subject ID and activity ID for test and training data respectively.
+* _test_all_ ,  _training_all_  and  _data_all_  combines the previous datasets for next step analysis.
+* _selected_data_ selects only the columns contains "mean" or "std" in the _data_all_ dataset.
+* _mergedData_  merges the selected data with _activity_ data frame.
+* _melt_data_ melt the data into five columns ("activityID"   "activityName" "subjectID"    "variable"     "value") so it prepared the data for the final cleaning step.
+* _dataset_final_ uses cast function to calculate the averages of each variable for each activity and each subject.
 
 ##Transformation Steps
 The script  run_analysis.R performs the following steps described in the course project's definition.
-* First, all the test and training data are merged using the  cbind() function. Since test_raw and training_raw having the same number of columns and column names, I used rbind() function to combine them into a complete data set called data_all.
-* Then, only those columns with the mean and standard deviation measures are taken from the data_all dataset. The new data set is called selected_data merge with the feature table from features.txt. It formed the first final data set which is called mergedData.
-* Finally, I generate the second final dataset with all the average measures for each subject and activity type. The output file is called  final_average_data_for_wearable_computing.txt , and uploaded to this repository.
+* First, all the test and training data are merged using the  cbind() function. Since test_raw and training_raw having the same number of columns and column names. 
+* Then I used rbind() function to combine test and training datasets into a complete data set called data_all.
+* After that, only those columns with the mean and standard deviation measures are taken from the data_all dataset. The new data set is called selected_data merge with the activity ID and name from activity_labels.txt. It formed the first final data set which is called mergedData.
+* Finally, I generate the second final dataset with all the average measures for each subject and activity type. 
+* The output file is called  final_average_data_for_wearable_computing.txt. It was uploaded to this repository as well.
 
 ##Data
 The dataset includes the following files:
