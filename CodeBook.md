@@ -15,7 +15,7 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 * test_all ,  training_all  and  data_all  combined the previous datasets for next step analysis.
 * mergedData  contains all the columns contains "mean" or "std"
 
-##transformation steps
+##Transformation Steps
 The script  run_analysis.R performs the following steps described in the course project's definition.
 * First, all the test and training data are merged using the  cbind() function. Since test_raw and training_raw having the same number of columns and column names, I used rbind() function to combine them into a complete data set called data_all.
 * Then, only those columns with the mean and standard deviation measures are taken from the data_all dataset. The new data set is called selected_data merge with the feature table from features.txt. It formed the first final data set which is called mergedData.
